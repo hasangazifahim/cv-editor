@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gazi Fahim Hasan — Interactive CV Studio & Builder</title>
+  <meta name="description" content="Edit, customize, and export Gazi Fahim Hasan's professional ATS-friendly CV with real-time live preview, auto-save, and one-click PDF generation.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+
+  <!-- Core ATS CV Stylesheet (Preserves exact typographic and print standards) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Studio & Editor Interface Stylesheet -->
+  <link rel="stylesheet" href="assets/css/editor-app.css">
+</head>
+<body class="studio-body">
+
+  <!-- Studio Top Navigation Header -->
+  <header class="studio-navbar">
+    <div class="studio-brand">
+      <span class="studio-badge">STUDIO</span>
+      <div class="studio-title">
+        <span>Gazi Fahim Hasan</span>
+        <span style="color: var(--studio-text-muted); font-weight: normal;">|</span>
+        <span style="font-weight: 500; font-size: 13.5px; color: var(--studio-text-muted);">CV Editor &amp; Builder</span>
+      </div>
+      <div class="autosave-pill" id="autosaveBadge" title="Edits are automatically saved to your browser storage">
+        <span class="autosave-dot"></span>
+        <span>Auto-saved</span>
+      </div>
+    </div>
+
+    <!-- Action Controls -->
+    <div class="studio-actions">
+      <button type="button" class="studio-btn studio-btn-primary" onclick="triggerPrintPDF()" title="Open print dialog to save clean PDF">
+        <span>🖨️</span>
+        <span>Print / Save PDF</span>
+      </button>
+
+      <button type="button" class="studio-btn" onclick="copyAtsPlainText()" title="Copy clean plain text for job application forms">
+        <span>📋</span>
+        <span>Copy Plain Text</span>
+      </button>
+
+      <button type="button" class="studio-btn" onclick="exportJsonFile()" title="Download a JSON backup of your current CV data">
+        <span>💾</span>
+        <span>Export JSON</span>
+      </button>
+
+      <button type="button" class="studio-btn" onclick="triggerImportJson()" title="Upload a previously saved CV JSON file">
+        <span>📂</span>
+        <span>Import JSON</span>
+      </button>
+
+      <button type="button" class="studio-btn studio-btn-danger" onclick="resetToMasterData()" title="Reset all fields to default verified CV">
+        <span>🔄</span>
+        <span>Reset</span>
+      </button>
+
+      <a href="index.html" class="studio-btn" title="View static production CV page" target="_blank" style="text-decoration: none;">
+        <span>👁️</span>
+        <span>Full Page</span>
+      </a>
+    </div>
+
+    <!-- Hidden File Picker for JSON Import -->
+    <input type="file" id="importJsonInput" accept=".json" style="display: none;" onchange="handleFileImport(event)">
+  </header>
+
+  <!-- Mobile View Switcher Tabs (Only visible on small mobile viewports) -->
+  <nav class="mobile-view-tabs" aria-label="Mobile View Switcher">
+    <button type="button" class="mobile-tab-btn active" onclick="setMobileView('edit')">✏️ Edit Form</button>
+    <button type="button" class="mobile-tab-btn" onclick="setMobileView('preview')">📄 Live Preview</button>
+  </nav>
+
+  <!-- Main Split Studio Workspace -->
+  <main class="studio-main-container">
+    <!-- Left: Dynamic Form Controls Sidebar -->
+    <aside class="studio-sidebar" aria-label="CV Sections Editor">
+      <div class="sidebar-content" id="editorFormSections">
+        <!-- Rendered dynamically by editor-app.js -->
+      </div>
+    </aside>
+
+    <!-- Right: Real-Time ATS Document Preview Canvas -->
+    <section class="studio-preview-stage" id="previewStage" aria-label="Live CV Preview">
+      <div class="cv-preview-paper" id="cv-preview-paper">
+        <!-- Injected and updated in real-time by editor-app.js -->
+      </div>
+
+      <!-- Preview Zoom & Reset Controls Bar -->
+      <div class="preview-controls-bar">
+        <button type="button" class="preview-ctrl-btn" onclick="zoomPreview(-0.05)" title="Zoom Out">−</button>
+        <button type="button" class="preview-ctrl-btn" onclick="resetZoom()" style="font-size: 11px; font-weight: 700;" title="Reset Zoom">100%</button>
+        <button type="button" class="preview-ctrl-btn" onclick="zoomPreview(0.05)" title="Zoom In">+</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="studio-toast" id="studioToast" role="status" aria-live="polite">
+    Notification message
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/cv-master-data.js"></script>
+  <script src="assets/js/editor-app.js"></script>
+</body>
+</html>

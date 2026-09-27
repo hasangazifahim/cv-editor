@@ -8,10 +8,11 @@ An executive, high-conversion, Applicant Tracking System (ATS) optimized Curricu
 
 ---
 
-## 📋 Available Formats
+## 📋 Available Formats & Tools
 
-| Format | File Link | Best Used For |
+| Format / Tool | File Link | Best Used For |
 | :--- | :--- | :--- |
+| **Interactive CV Studio & Builder** | [editor.html](./editor.html) | **Self-service live editor**: customize all fields one-by-one with real-time preview, auto-save, conditional field hiding, JSON export/import, and instant PDF print. |
 | **Executive PDF (With Photo)** | [Gazi_Fahim_Hasan_ATS_CV.pdf](./Gazi_Fahim_Hasan_ATS_CV.pdf) | Direct recruiter emails, European/international job applications, hiring manager presentations. |
 | **Strict ATS PDF (Text-Only)** | [Gazi_Fahim_Hasan_ATS_CV_TextOnly.pdf](./Gazi_Fahim_Hasan_ATS_CV_TextOnly.pdf) | Automated application portals (Workday, Taleo, Greenhouse, Lever, iCIMS). |
 | **Interactive Web Viewer** | [index.html](./index.html) | Live browser preview with print optimization (`@media print`), photo toggle, and ATS text exporter. |

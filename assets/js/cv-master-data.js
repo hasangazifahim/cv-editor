@@ -6,30 +6,26 @@
 window.CV_MASTER_DATA = {
   personal: {
     fullName: "GAZI FAHIM HASAN",
-    title: "SEO Executive & Technical SEO Specialist",
-    location: "Narayanganj, Bangladesh",
+    title: "Senior Executive SEO",
+    location: "Dhaka, Bangladesh",
     phone: "+880 1857571304",
     email: "gazifahimhasan1@gmail.com",
     portfolioUrl: "https://gazifahimhasan.com",
     githubUrl: "https://github.com/gazifahim",
-    linkedinUrl: "https://linkedin.com/in/gazifahimhasan",
+    linkedinUrl: "",
     photoUrl: "assets/images/gazi-portrait.png",
     photoMode: "square" // "square", "rounded", "hidden"
   },
 
-  summary: "Results-driven SEO Executive and Computer Science & Engineering graduate with demonstrable expertise leading search marketing teams, architecting technical search engine visibility, and engineering organic revenue growth. Proven track record of delivering +340% average organic traffic lift, ranking 1,500+ commercial keywords in Google Top 3, and achieving 770% average client ROI. Merges core computer science disciplines (crawling mechanics, JavaScript rendering, site architecture, and Schema.org structured data) with analytical search intelligence to resolve complex indexing bottlenecks and capture high-converting search intent.",
+  summary: "Results-driven Senior Executive SEO and Computer Science & Engineering graduate with demonstrable expertise leading search marketing teams, architecting technical search engine visibility, and engineering organic revenue growth. Proven track record of delivering exponential organic traffic lift, ranking high-value commercial keywords in Google Top positions, and driving exceptional client return on investment. Merges core computer science disciplines (crawling mechanics, JavaScript rendering, site architecture, and Schema.org structured data) with analytical search intelligence to resolve complex indexing bottlenecks and capture high-converting search intent.",
 
-  metrics: [
-    { value: "+340%", label: "Avg. Organic Traffic Lift" },
-    { value: "1,500+", label: "Keywords in Top 3" },
-    { value: "120+", label: "Technical Audits Done" },
-    { value: "770%", label: "Average Client ROI" }
-  ],
+  metrics: [],
 
   skills: {
     technicalSeo: "Core Web Vitals (LCP, INP, CLS), Crawl Budget Optimization, Screaming Frog Audits, XML Sitemaps, Robots.txt, Canonicalization, Hreflang, JS Rendering & Hydration, HTTP Status Codes (301, 404, 500), Indexation Architecture",
-    onPageSemantic: "Schema.org JSON-LD Structured Data, Search Intent & Entity Mapping, Keyword Clustering & Cannibalization Fixes, Semantic LSI Optimization, Heading Hierarchy (H1–H6), Internal Linking Silos, Image SEO",
-    offPageAuthority: "High-DR Editorial Outreach, Competitor Backlink Gap Analysis, Digital PR, Toxic Link Disavowal, NAP Consistency, Local SEO Citations, Google Business Profile (GBP) Optimization",
+    localSeo: "Google Business Profile (GBP) Optimization, Local Pack (3-Pack) Ranking, NAP Consistency, Geo-Targeted Landing Pages, Local Citations & Directory Listings, Local Schema (LocalBusiness Markup), Review Management",
+    onPage: "Schema.org JSON-LD Structured Data, Search Intent & Entity Mapping, Keyword Clustering & Cannibalization Fixes, Heading Hierarchy (H1–H6), Internal Linking Silos, Image SEO",
+    offPageAuthority: "High-DR Editorial Outreach, Competitor Backlink Gap Analysis, Digital PR, Link Profile Audits, Toxic Link Disavowal, Brand Mention Acquisition",
     analyticsTools: "Google Search Console (GSC), Google Analytics 4 (GA4), Ahrefs, SEMrush, SurferSEO, Google PageSpeed Insights, Google Lighthouse, Looker Studio Dashboards",
     webProgramming: "HTML5, CSS3, JavaScript, RESTful APIs, Git / GitHub, Computational Algorithms, Web Performance Optimization"
   },
@@ -40,7 +36,7 @@ window.CV_MASTER_DATA = {
       role: "SEO Executive",
       company: "Scaleup Ads Agency",
       period: "Jan 2025 – Present",
-      location: "Narayanganj, Bangladesh",
+      location: "",
       bullets: [
         "Lead and supervise the cross-functional SEO team to achieve organic acquisition and revenue KPIs across high-growth international client accounts.",
         "Architect and execute end-to-end full-funnel search strategies, coordinating technical on-page fixes, content roadmaps, and white-hat link acquisition.",
@@ -53,7 +49,7 @@ window.CV_MASTER_DATA = {
       role: "SEO Expert & Consultant",
       company: "Freelance Client Engagements",
       period: "Jan 2024 – Present",
-      location: "Remote / Global",
+      location: "",
       bullets: [
         "Conducted in-depth keyword research, competitor intelligence, and comprehensive Technical SEO audits for international e-commerce and SaaS brands.",
         "Built automated, transparent executive reporting dashboards consolidating GA4 conversions, Google Search Console clicks, and Ahrefs visibility trends.",
@@ -66,7 +62,7 @@ window.CV_MASTER_DATA = {
       role: "Training Assistant / Interpreter",
       company: "United Interpreters Bangladesh",
       period: "Jan 2024 – Dec 2024",
-      location: "Bangladesh",
+      location: "",
       bullets: [
         "Translated and interpreted complex technical instruction between English and Bangla with precision and contextual clarity.",
         "Mentored and supported trainees throughout intensive development modules, maintaining structured communication workflows."

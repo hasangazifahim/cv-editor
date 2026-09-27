@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'gazi_cv_user_data_v1';
+  const STORAGE_KEY = 'gazi_cv_user_data_v2';
   let state = null;
   let saveTimeout = null;
 
@@ -135,20 +135,29 @@
             <textarea class="field-textarea" rows="5" oninput="updateField('summary', this.value)">${escapeHtml(state.summary)}</textarea>
           </div>
           <div class="field-label" style="margin-top:6px;">Highlights Metrics Strip</div>
-          <div class="form-grid-2">
-            ${state.metrics.map((m, idx) => `
-              <div class="list-card-item">
-                <div class="form-field">
-                  <label class="field-label">Metric ${idx + 1} Value</label>
-                  <input type="text" class="field-input" value="${escapeHtml(m.value)}" oninput="updateMetric(${idx}, 'value', this.value)">
+          ${(state.metrics && state.metrics.length > 0) ? `
+            <div class="form-grid-2">
+              ${state.metrics.map((m, idx) => `
+                <div class="list-card-item">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                    <span class="field-label" style="margin:0;">Metric ${idx + 1}</span>
+                    <button type="button" class="btn-delete-bullet" title="Delete metric" onclick="removeMetric(${idx})">✕</button>
+                  </div>
+                  <div class="form-field">
+                    <label class="field-label">Value</label>
+                    <input type="text" class="field-input" placeholder="e.g. +340%" value="${escapeHtml(m.value)}" oninput="updateMetric(${idx}, 'value', this.value)">
+                  </div>
+                  <div class="form-field">
+                    <label class="field-label">Label</label>
+                    <input type="text" class="field-input" placeholder="e.g. Traffic Lift" value="${escapeHtml(m.label)}" oninput="updateMetric(${idx}, 'label', this.value)">
+                  </div>
                 </div>
-                <div class="form-field">
-                  <label class="field-label">Metric Label</label>
-                  <input type="text" class="field-input" value="${escapeHtml(m.label)}" oninput="updateMetric(${idx}, 'label', this.value)">
-                </div>
-              </div>
-            `).join('')}
-          </div>
+              `).join('')}
+            </div>
+          ` : `
+            <div style="font-size:12px; color:var(--studio-text-muted); margin-bottom:10px;">Metrics table is hidden/removed. If you ever want to highlight quantified stats below the summary, add them below:</div>
+          `}
+          <button type="button" class="btn-add-section-item" style="margin-top:4px;" onclick="addMetricItem()">+ Add Highlight Metric</button>
         </div>
       </div>
 
@@ -164,23 +173,27 @@
         <div class="section-body">
           <div class="form-field">
             <label class="field-label">Technical SEO</label>
-            <textarea class="field-textarea" rows="2" oninput="updateField('skills.technicalSeo', this.value)">${escapeHtml(state.skills.technicalSeo)}</textarea>
+            <textarea class="field-textarea" rows="2" oninput="updateField('skills.technicalSeo', this.value)">${escapeHtml(state.skills.technicalSeo || '')}</textarea>
           </div>
           <div class="form-field">
-            <label class="field-label">On-Page & Semantic SEO</label>
-            <textarea class="field-textarea" rows="2" oninput="updateField('skills.onPageSemantic', this.value)">${escapeHtml(state.skills.onPageSemantic)}</textarea>
+            <label class="field-label">Local SEO</label>
+            <textarea class="field-textarea" rows="2" oninput="updateField('skills.localSeo', this.value)">${escapeHtml(state.skills.localSeo || '')}</textarea>
+          </div>
+          <div class="form-field">
+            <label class="field-label">On-Page SEO</label>
+            <textarea class="field-textarea" rows="2" oninput="updateField('skills.onPage', this.value)">${escapeHtml(state.skills.onPage || state.skills.onPageSemantic || '')}</textarea>
           </div>
           <div class="form-field">
             <label class="field-label">Off-Page & Authority Building</label>
-            <textarea class="field-textarea" rows="2" oninput="updateField('skills.offPageAuthority', this.value)">${escapeHtml(state.skills.offPageAuthority)}</textarea>
+            <textarea class="field-textarea" rows="2" oninput="updateField('skills.offPageAuthority', this.value)">${escapeHtml(state.skills.offPageAuthority || '')}</textarea>
           </div>
           <div class="form-field">
             <label class="field-label">Analytics & SEO Tool Stack</label>
-            <textarea class="field-textarea" rows="2" oninput="updateField('skills.analyticsTools', this.value)">${escapeHtml(state.skills.analyticsTools)}</textarea>
+            <textarea class="field-textarea" rows="2" oninput="updateField('skills.analyticsTools', this.value)">${escapeHtml(state.skills.analyticsTools || '')}</textarea>
           </div>
           <div class="form-field">
             <label class="field-label">Web & Programming Foundation</label>
-            <textarea class="field-textarea" rows="2" oninput="updateField('skills.webProgramming', this.value)">${escapeHtml(state.skills.webProgramming)}</textarea>
+            <textarea class="field-textarea" rows="2" oninput="updateField('skills.webProgramming', this.value)">${escapeHtml(state.skills.webProgramming || '')}</textarea>
           </div>
         </div>
       </div>
@@ -457,7 +470,8 @@
     // 4. Skills Grid (Only non-empty categories)
     const skillCategories = [
       { label: 'Technical SEO:', val: state.skills?.technicalSeo },
-      { label: 'On-Page & Semantic:', val: state.skills?.onPageSemantic },
+      { label: 'Local SEO:', val: state.skills?.localSeo },
+      { label: 'On-Page:', val: state.skills?.onPage || state.skills?.onPageSemantic },
       { label: 'Off-Page & Authority:', val: state.skills?.offPageAuthority },
       { label: 'Analytics & Tools:', val: state.skills?.analyticsTools },
       { label: 'Web & Programming:', val: state.skills?.webProgramming }
@@ -625,7 +639,7 @@
 
           ${!isPhotoHidden ? `
             <div class="cv-photo-wrapper ${photoClass}">
-              <img src="${escapeHtml(p.photoUrl)}" alt="${escapeHtml(p.fullName || 'Portrait')}" width="90" height="90">
+              <img src="${escapeHtml(p.photoUrl)}" alt="${escapeHtml(p.fullName || 'Portrait')}" width="112" height="112">
             </div>
           ` : ''}
         </header>
@@ -664,8 +678,25 @@
   };
 
   window.updateMetric = function (idx, field, value) {
-    if (state.metrics[idx]) {
+    if (state.metrics && state.metrics[idx]) {
       state.metrics[idx][field] = value;
+      renderLivePreview();
+      saveState();
+    }
+  };
+
+  window.addMetricItem = function () {
+    if (!state.metrics) state.metrics = [];
+    state.metrics.push({ value: '', label: '' });
+    renderEditorForm();
+    renderLivePreview();
+    saveState();
+  };
+
+  window.removeMetric = function (idx) {
+    if (state.metrics && state.metrics[idx] !== undefined) {
+      state.metrics.splice(idx, 1);
+      renderEditorForm();
       renderLivePreview();
       saveState();
     }
@@ -922,7 +953,8 @@
 
     const validSkills = [
       { label: 'Technical SEO', val: d.skills?.technicalSeo },
-      { label: 'On-Page & Semantic', val: d.skills?.onPageSemantic },
+      { label: 'Local SEO', val: d.skills?.localSeo },
+      { label: 'On-Page', val: d.skills?.onPage || d.skills?.onPageSemantic },
       { label: 'Off-Page & Authority', val: d.skills?.offPageAuthority },
       { label: 'Analytics & Tools', val: d.skills?.analyticsTools },
       { label: 'Web & Programming', val: d.skills?.webProgramming }
@@ -937,14 +969,13 @@
       });
       out += `\n`;
     }
-    out += `Analytics & Tools: ${d.skills.analyticsTools}\n`;
-    out += `Web & Programming: ${d.skills.webProgramming}\n\n`;
 
     out += `========================================================\n`;
     out += `PROFESSIONAL EXPERIENCE\n`;
     out += `========================================================\n`;
     d.experience.forEach(exp => {
-      out += `${exp.role} | ${exp.company} (${exp.period}) - ${exp.location}\n`;
+      const locStr = exp.location && exp.location.trim() ? ` - ${exp.location.trim()}` : '';
+      out += `${exp.role} | ${exp.company} (${exp.period})${locStr}\n`;
       exp.bullets.forEach(b => {
         out += `  • ${b}\n`;
       });

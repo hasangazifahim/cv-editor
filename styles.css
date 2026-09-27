@@ -248,13 +248,21 @@ body {
 /* Photo Container */
 .cv-photo-wrapper {
   flex-shrink: 0;
-  width: 90px;
-  height: 90px;
+  width: 112px;
+  height: 112px;
   border-radius: 4px;
   overflow: hidden;
   border: 1.5px solid #cbd5e1;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   background: #f1f5f9;
+}
+
+.cv-photo-wrapper.photo-rounded {
+  border-radius: 50%;
+}
+
+.cv-photo-wrapper.photo-square {
+  border-radius: 4px;
 }
 
 .cv-photo-wrapper img {

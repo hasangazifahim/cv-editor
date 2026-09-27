@@ -252,8 +252,8 @@ body {
   height: 112px;
   border-radius: 4px;
   overflow: hidden;
-  border: 1.5px solid #cbd5e1;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #cbd5e1;
+  box-shadow: none !important;
   background: #f1f5f9;
 }
 

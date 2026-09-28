@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'gazi_cv_user_data_v2';
+  const STORAGE_KEY = 'gazi_cv_user_data_v3';
   let state = null;
   let saveTimeout = null;
 
@@ -23,7 +23,7 @@
      ========================================================================== */
   function initState() {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('gazi_cv_user_data_v2');
       if (saved) {
         state = JSON.parse(saved);
       }
@@ -34,6 +34,13 @@
     if (!state) {
       // Deep clone master data
       state = JSON.parse(JSON.stringify(window.CV_MASTER_DATA));
+    }
+
+    // Ensure GitHub URL is current
+    if (state && state.personal) {
+      if (!state.personal.githubUrl || state.personal.githubUrl === 'https://github.com/gazifahim') {
+        state.personal.githubUrl = 'https://github.com/hasangazifahim';
+      }
     }
   }
 

@@ -11,7 +11,7 @@ window.CV_MASTER_DATA = {
     phone: "+880 1857571304",
     email: "gazifahimhasan1@gmail.com",
     portfolioUrl: "https://gazifahimhasan.com",
-    githubUrl: "https://github.com/gazifahim",
+    githubUrl: "https://github.com/hasangazifahim",
     linkedinUrl: "",
     photoUrl: "assets/images/gazi-portrait.png",
     photoMode: "square" // "square", "rounded", "hidden"

@@ -108,5 +108,5 @@ Verified via automated PDF extraction (`pypdf`) simulating modern corporate ATS 
 - **Portfolio**: [gazifahimhasan.com](https://gazifahimhasan.com)
 - **Email**: [gazifahimhasan1@gmail.com](mailto:gazifahimhasan1@gmail.com)
 - **Phone**: [+880 1857571304](tel:+8801857571304)
-- **GitHub**: [@gazifahim](https://github.com/gazifahim)
+- **GitHub**: [@hasangazifahim](https://github.com/hasangazifahim)
 - **LinkedIn**: [linkedin.com/in/gazifahimhasan](https://linkedin.com/in/gazifahimhasan)

@@ -101,3 +101,29 @@ Please:
 3. Write a tailored, high-converting cover letter / application pitch that includes my specific metrics (+340% traffic, 1.5K+ keywords top 3, 98/100 Lighthouse, #1 Map pack in 8 locations).
 4. Give me 3-5 interview talking points tailored to their business model.
 ```
+
+---
+
+## 8. Preferred Baseline Email Cover Letter Template
+
+Whenever generating cold outreach emails or job application cover letters, use this exact style and structure as the primary baseline:
+
+```text
+Dear [Hiring Manager / Hiring Team], 
+
+I am excited to apply for the [Job Title] role at [Company Name]. 
+
+With a background in SEO and digital marketing, I have hands-on experience in technical SEO, on-page optimization, keyword research, local SEO, content strategy, link building, and performance analysis. I enjoy developing data-driven strategies that improve search visibility, strengthen organic presence, and support sustainable business growth. 
+
+I am particularly interested in the opportunity to bring my SEO expertise, analytical mindset, and problem-solving approach to [Company Name]. I am confident that my practical experience and ability to adapt to different industries and business goals would allow me to contribute effectively to this role. 
+
+Thank you for your time and consideration. I look forward to the opportunity to discuss how my experience can contribute to [Company Name]. 
+
+Best regards,
+Gazi Fahim Hasan
+Mobile: +880 1857571304
+Mail: gazifahimhasan1@gmail.com
+Portfolio: https://gazifahimhasan.com
+Github: https://github.com/hasangazifahim
+```
+
